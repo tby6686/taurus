@@ -23,10 +23,10 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -34,6 +34,13 @@
         </dependency>
         <!-- spring boot相关  end-->
 
+
+        <!--Knife4j begin-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>
+        <!--Knife4j end-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -44,7 +51,7 @@
         <!--项目依赖模块-->
         <dependency>
             <groupId>cn.com.taurus</groupId>
-            <artifactId>taurus-system</artifactId>
+            <artifactId>taurus-common</artifactId>
         </dependency>
     </dependencies>
 

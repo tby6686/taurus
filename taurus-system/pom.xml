@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.com.taurus</groupId>
-            <artifactId>taurus-common</artifactId>
+            <artifactId>taurus-framework</artifactId>
         </dependency>
     </dependencies>
 

@@ -5,12 +5,12 @@ import cn.com.taurus.common.api.ApiResult;
 import cn.com.taurus.common.exception.BusinessException;
 import cn.com.taurus.common.exception.DaoException;
 import cn.com.taurus.common.utils.StringUtils;
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 全局异常处理器
@@ -24,13 +24,13 @@ public class GlobalExceptionHandler {
     /**
      * 权限校验异常
      */
-    @ExceptionHandler(AccessDeniedException.class)
+    /*@ExceptionHandler(AccessDeniedException.class)
     public ApiResult handleAccessDeniedException(AccessDeniedException e,
         HttpServletRequest request) {
         String requestURI = request.getRequestURI();
         log.error("请求地址'{}',权限校验失败'{}'", requestURI, e.getMessage());
         return ApiResult.result(ApiCode.FORBIDDEN, "没有权限，请联系管理员授权");
-    }
+    }*/
 
     /**
      * 请求方式不支持

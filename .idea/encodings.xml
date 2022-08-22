@@ -4,11 +4,8 @@
     <file url="file://$PROJECT_DIR$/taurus-application/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taurus-application/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taurus-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/taurus-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taurus-framework/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/taurus-framework/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taurus-system/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/taurus-system/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

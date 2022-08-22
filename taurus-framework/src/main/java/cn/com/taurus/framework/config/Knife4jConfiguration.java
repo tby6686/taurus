@@ -1,40 +1,49 @@
 package cn.com.taurus.framework.config;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @author tby
  * @description
  * @date 2022-08-22 17:30
+ * http://localhost:8088/api/doc.html
  */
+@Slf4j
 @Configuration
-@EnableSwagger2WebMvc
+@EnableSwagger2
+@EnableKnife4j
 public class Knife4jConfiguration {
 
-    @Bean(value = "defaultApi2")
-    public Docket defaultApi2() {
-        Docket docket = new Docket(DocumentationType.SWAGGER_2)
-            .apiInfo(new ApiInfoBuilder()
-                .title("swagger-taurus RESTful APIs")
-                .description("# swagger-taurus RESTful APIs")
-                //.termsOfServiceUrl("http://www.xx.com/")
-                .contact("by tianbaoyan")
-                .version("1.0")
-                .build())
-            //分组名称
-            .groupName("2.X版本")
-            .select()
-            //这里指定Controller扫描包路径
-            .apis(RequestHandlerSelectors.basePackage("com.github.xiaoymin.knife4j.controller"))
-            .paths(PathSelectors.any())
-            .build();
-        return docket;
+    @Bean
+    public Docket createRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .useDefaultResponseMessages(false)
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.com.taurus"))
+                .paths(PathSelectors.any())
+                .build();
+
     }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .description("spirng boot taurus apis")
+                .contact(new Contact("tby", "https://github.com/tby6686/taurus.git", "814620421@qq.com"))
+                .version("v1.1.0")
+                .title("spirng-boot-taurus")
+                .build();
+    }
+
 }
