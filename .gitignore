@@ -1,0 +1,5 @@
+# Project exclude paths
+/taurus-application/target/
+/taurus-common/target/
+/taurus-framework/target/
+/taurus-system/target/

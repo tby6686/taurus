@@ -1,0 +1,38 @@
+##common config
+############################# 访问路径、端口tomcat start #############################
+server:
+  port: 8088
+  servlet:
+    context-path: /api
+  tomcat:
+    max-threads: 1000
+    min-spare-threads: 30
+    uri-encoding: UTF-8
+############################# 访问路径、端口tomcat end ###############################
+
+################################ spring config start ###############################
+spring:
+  application:
+    name: taurus-application
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  jackson:
+    date-format: yyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  banner:
+    charset: UTF-8
+    location: classpath:config/banner.txt
+
+# 当前项目maven激活环境，例如：dev/prod，对应pom.xml中profile设置值
+---
+spring:
+  profiles:
+    active: '@profileActive@'
+
+# logback.xml中有详细的日志配置
+logging:
+  config: classpath:config/logback.xml
+################################ spring config end #################################
