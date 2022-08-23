@@ -17,12 +17,13 @@
 package cn.com.taurus.common.api;
 
 import cn.com.taurus.common.utils.StringUtils;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -97,6 +98,14 @@ public class ApiResult<T> implements Serializable {
         return result(apiCode, null);
     }
 
+    public static ApiResult success(){
+        return result(ApiCode.SUCCESS);
+    }
+
+    public static ApiResult fail(){
+        return result(ApiCode.FAIL);
+    }
+
     ////////////////////成功消息///////////////////////////////////
     /**
      * 返回成功消息
@@ -116,7 +125,6 @@ public class ApiResult<T> implements Serializable {
     public static <T> ApiResult<T> success(T data){
         return success(null, data);
     }
-
 
     ////////////////////失败消息///////////////////////////////////
 

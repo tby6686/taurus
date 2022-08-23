@@ -35,6 +35,11 @@ public class Constants {
     //////////////////////////////////////////////////
 
     /**
+     * 令牌(返回的json结果中key)
+     */
+    public static final String TOKEN = "token";
+
+    /**
      * 登录成功
      */
     public static final String LOGIN_SUCCESS = "Success";
@@ -53,6 +58,19 @@ public class Constants {
      * 注销
      */
     public static final String LOGOUT = "Logout";
+
+
+    ////////////////////////////////////////////
+
+    /**
+     * http请求
+     */
+    public static final String HTTP = "http://";
+
+    /**
+     * https请求
+     */
+    public static final String HTTPS = "https://";
 
 
 

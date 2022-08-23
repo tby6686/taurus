@@ -1,5 +1,7 @@
 package cn.com.taurus.common.utils;
 
+import cn.com.taurus.common.constant.Constants;
+
 /**
  * @author tby
  * @description
@@ -17,6 +19,19 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     {
         return value != null ? value : defaultValue;
     }
+
+    /**
+     * 是否为http(s)://开头
+     *
+     * @param link 链接
+     * @return 结果
+     */
+    public static boolean ishttp(String link)
+    {
+        return StringUtils.startsWithAny(link, Constants.HTTP, Constants.HTTPS);
+    }
+
+
 
     /**
      * 是否包含字符串
