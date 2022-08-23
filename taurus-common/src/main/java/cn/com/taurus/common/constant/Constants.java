@@ -1,5 +1,7 @@
 package cn.com.taurus.common.constant;
 
+import cn.com.taurus.common.enums.BusinessStatus;
+
 /**
  * @author tby
  * @description
@@ -10,12 +12,12 @@ public class Constants {
     /**
      * 通用成功标识
      */
-    public static final String SUCCESS = "0";
+    public static final String SUCCESS = BusinessStatus.SUCCESS.getCode()+"";
 
     /**
      * 通用失败标识
      */
-    public static final String FAIL = "1";
+    public static final String FAIL = BusinessStatus.FAIL.getCode()+"";
 
     //////////////////////token相关////////////////////////
 
@@ -25,25 +27,10 @@ public class Constants {
     public static final String TOKEN_CLAIMS_KEY = "login_user_key";
 
     /**
-     * 令牌前缀(请求)
+     * 令牌前缀(请求头中)
      */
     public static final String TOKEN_REQUEST_PREFIX = "Bearer ";
 
-
-    /**
-     * 登录用户 redis key
-     */
-    public static final String REDIS_LOGIN_TOKENS_KEY = "login_tokens:";
-
-    /**
-     * 参数管理 cache key
-     */
-    public static final String REDIS_SYS_CONFIG_KEY = "sys_config:";
-
-    /**
-     * 验证码 redis key
-     */
-    public static final String REDIS_CAPTCHA_CODES_KEY = "captcha_codes:";
 
     //////////////////////////////////////////////////
 

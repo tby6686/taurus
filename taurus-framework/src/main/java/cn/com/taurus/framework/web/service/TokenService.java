@@ -1,6 +1,7 @@
 package cn.com.taurus.framework.web.service;
 
 
+import cn.com.taurus.common.constant.CacheConstants;
 import cn.com.taurus.common.constant.Constants;
 import cn.com.taurus.common.utils.ServletUtils;
 import cn.com.taurus.common.utils.StringUtils;
@@ -221,6 +222,6 @@ public class TokenService
 
     private String getTokenKey(String uuid)
     {
-        return Constants.REDIS_LOGIN_TOKENS_KEY + uuid;
+        return CacheConstants.REDIS_LOGIN_TOKENS_KEY + uuid;
     }
 }

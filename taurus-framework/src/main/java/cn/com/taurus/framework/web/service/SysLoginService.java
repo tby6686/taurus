@@ -1,5 +1,6 @@
 package cn.com.taurus.framework.web.service;
 
+import cn.com.taurus.common.constant.CacheConstants;
 import cn.com.taurus.common.constant.Constants;
 import cn.com.taurus.common.exception.ServiceException;
 import cn.com.taurus.common.exception.user.CaptchaException;
@@ -110,7 +111,7 @@ public class SysLoginService
      */
     public void validateCaptcha(String username, String code, String uuid)
     {
-        String verifyKey = Constants.REDIS_CAPTCHA_CODES_KEY + StringUtils.nvl(uuid, "");
+        String verifyKey = CacheConstants.REDIS_CAPTCHA_CODES_KEY + StringUtils.nvl(uuid, "");
         String captcha = redisCache.getCacheObject(verifyKey);
         redisCache.deleteObject(verifyKey);
         if (captcha == null)

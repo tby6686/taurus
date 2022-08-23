@@ -1,6 +1,6 @@
 package cn.com.taurus.system.service.impl;
 
-import cn.com.taurus.common.constant.Constants;
+import cn.com.taurus.common.constant.CacheConstants;
 import cn.com.taurus.common.core.service.impl.BaseServiceImpl;
 import cn.com.taurus.common.utils.StringUtils;
 import cn.com.taurus.common.utils.redis.RedisCache;
@@ -80,7 +80,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfigMapper, SysCo
      */
     private String getCacheKey(String configKey)
     {
-        return Constants.REDIS_SYS_CONFIG_KEY + configKey;
+        return CacheConstants.REDIS_SYS_CONFIG_KEY + configKey;
     }
 
 
