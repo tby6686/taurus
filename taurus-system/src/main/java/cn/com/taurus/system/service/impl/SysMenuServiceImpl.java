@@ -1,7 +1,7 @@
 package cn.com.taurus.system.service.impl;
 
 import cn.com.taurus.common.core.service.impl.BaseServiceImpl;
-import cn.com.taurus.system.entity.SysMenu;
+import cn.com.taurus.common.core.domain.entity.SysMenu;
 import cn.com.taurus.system.mapper.SysMenuMapper;
 import cn.com.taurus.system.service.ISysMenuService;
 import java.util.Arrays;

@@ -1,6 +1,6 @@
 package cn.com.taurus.system.mapper;
 
-import cn.com.taurus.system.entity.SysDept;
+import cn.com.taurus.common.core.domain.entity.SysDept;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

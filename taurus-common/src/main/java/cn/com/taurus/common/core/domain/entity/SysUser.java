@@ -1,6 +1,6 @@
-package cn.com.taurus.system.entity;
+package cn.com.taurus.common.core.domain.entity;
 
-import cn.com.taurus.common.core.entity.BaseEntity;
+import cn.com.taurus.common.core.domain.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;

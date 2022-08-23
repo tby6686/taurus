@@ -1,10 +1,10 @@
 package cn.com.taurus.framework.web.service;
 
 
+import cn.com.taurus.common.core.domain.entity.SysUser;
+import cn.com.taurus.common.core.domain.model.LoginUser;
 import cn.com.taurus.common.enums.UserStatus;
 import cn.com.taurus.common.exception.ServiceException;
-import cn.com.taurus.framework.web.domain.LoginUser;
-import cn.com.taurus.system.entity.SysUser;
 import cn.com.taurus.system.service.ISysUserService;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;

@@ -1,14 +1,9 @@
 package cn.com.taurus.framework.security.filter;
 
 
-import cn.com.taurus.framework.security.utils.SecurityUtils;
-import cn.com.taurus.framework.web.domain.LoginUser;
+import cn.com.taurus.common.core.domain.model.LoginUser;
+import cn.com.taurus.common.utils.SecurityUtils;
 import cn.com.taurus.framework.web.service.TokenService;
-import java.io.IOException;
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,6 +11,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * token过滤器 验证token有效性

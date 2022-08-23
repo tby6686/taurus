@@ -1,6 +1,6 @@
 package cn.com.taurus.system.mapper;
 
-import cn.com.taurus.system.entity.SysMenu;
+import cn.com.taurus.common.core.domain.entity.SysMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import java.util.List;
 

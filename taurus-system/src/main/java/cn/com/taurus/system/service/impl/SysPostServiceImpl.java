@@ -1,7 +1,7 @@
 package cn.com.taurus.system.service.impl;
 
 import cn.com.taurus.common.core.service.impl.BaseServiceImpl;
-import cn.com.taurus.system.entity.SysPost;
+import cn.com.taurus.common.core.domain.entity.SysPost;
 import cn.com.taurus.system.mapper.SysPostMapper;
 import cn.com.taurus.system.service.ISysPostService;
 import lombok.extern.slf4j.Slf4j;

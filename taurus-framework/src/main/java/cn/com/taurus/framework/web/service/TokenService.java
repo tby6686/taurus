@@ -3,24 +3,25 @@ package cn.com.taurus.framework.web.service;
 
 import cn.com.taurus.common.constant.CacheConstants;
 import cn.com.taurus.common.constant.Constants;
+import cn.com.taurus.common.core.domain.model.LoginUser;
 import cn.com.taurus.common.utils.ServletUtils;
 import cn.com.taurus.common.utils.StringUtils;
 import cn.com.taurus.common.utils.ip.IpUtils;
 import cn.com.taurus.common.utils.redis.RedisCache;
 import cn.com.taurus.common.utils.uuid.IdUtils;
-import cn.com.taurus.framework.web.domain.LoginUser;
 import eu.bitwalker.useragentutils.UserAgent;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * token验证处理

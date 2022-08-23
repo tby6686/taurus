@@ -1,7 +1,7 @@
 package cn.com.taurus.system.service;
 
 import cn.com.taurus.common.core.service.BaseService;
-import cn.com.taurus.system.entity.SysRole;
+import cn.com.taurus.common.core.domain.entity.SysRole;
 import java.util.Set;
 
 /**

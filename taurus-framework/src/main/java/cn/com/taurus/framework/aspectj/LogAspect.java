@@ -1,14 +1,14 @@
 package cn.com.taurus.framework.aspectj;
 
 import cn.com.taurus.common.annotation.Log;
+import cn.com.taurus.common.core.domain.model.LoginUser;
 import cn.com.taurus.common.enums.BusinessStatus;
+import cn.com.taurus.common.utils.SecurityUtils;
 import cn.com.taurus.common.utils.ServletUtils;
 import cn.com.taurus.common.utils.StringUtils;
 import cn.com.taurus.common.utils.ip.IpUtils;
 import cn.com.taurus.framework.manager.AsyncManager;
 import cn.com.taurus.framework.manager.factory.AsyncFactory;
-import cn.com.taurus.framework.security.utils.SecurityUtils;
-import cn.com.taurus.framework.web.domain.LoginUser;
 import cn.com.taurus.system.entity.SysOperLog;
 import com.alibaba.fastjson2.JSON;
 import org.apache.commons.lang3.ObjectUtils;

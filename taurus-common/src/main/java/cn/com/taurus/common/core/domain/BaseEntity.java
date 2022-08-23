@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package cn.com.taurus.common.core.entity;
+package cn.com.taurus.common.core.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
-import lombok.Data;
 
 /**
  * 实体父类

@@ -1,7 +1,7 @@
 package cn.com.taurus.framework.web.service;
 
 
-import cn.com.taurus.system.entity.SysUser;
+import cn.com.taurus.common.core.domain.entity.SysUser;
 import cn.com.taurus.system.service.ISysMenuService;
 import cn.com.taurus.system.service.ISysRoleService;
 import java.util.HashSet;

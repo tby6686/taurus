@@ -2,6 +2,8 @@ package cn.com.taurus.framework.web.service;
 
 import cn.com.taurus.common.constant.CacheConstants;
 import cn.com.taurus.common.constant.Constants;
+import cn.com.taurus.common.core.domain.entity.SysUser;
+import cn.com.taurus.common.core.domain.model.LoginUser;
 import cn.com.taurus.common.exception.ServiceException;
 import cn.com.taurus.common.exception.user.CaptchaException;
 import cn.com.taurus.common.exception.user.CaptchaExpireException;
@@ -14,8 +16,6 @@ import cn.com.taurus.common.utils.ip.IpUtils;
 import cn.com.taurus.common.utils.redis.RedisCache;
 import cn.com.taurus.framework.manager.AsyncManager;
 import cn.com.taurus.framework.manager.factory.AsyncFactory;
-import cn.com.taurus.framework.web.domain.LoginUser;
-import cn.com.taurus.system.entity.SysUser;
 import cn.com.taurus.system.service.ISysConfigService;
 import cn.com.taurus.system.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;

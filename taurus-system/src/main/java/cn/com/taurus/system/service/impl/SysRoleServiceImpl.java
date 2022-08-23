@@ -1,7 +1,7 @@
 package cn.com.taurus.system.service.impl;
 
 import cn.com.taurus.common.core.service.impl.BaseServiceImpl;
-import cn.com.taurus.system.entity.SysRole;
+import cn.com.taurus.common.core.domain.entity.SysRole;
 import cn.com.taurus.system.mapper.SysRoleMapper;
 import cn.com.taurus.system.service.ISysRoleService;
 import java.util.Arrays;

@@ -1,7 +1,7 @@
 package cn.com.taurus.system.service.impl;
 
 import cn.com.taurus.common.core.service.impl.BaseServiceImpl;
-import cn.com.taurus.system.entity.SysUser;
+import cn.com.taurus.common.core.domain.entity.SysUser;
 import cn.com.taurus.system.mapper.SysUserMapper;
 import cn.com.taurus.system.service.ISysUserService;
 import lombok.extern.slf4j.Slf4j;

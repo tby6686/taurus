@@ -1,9 +1,9 @@
-package cn.com.taurus.framework.security.utils;
+package cn.com.taurus.common.utils;
 
 
 import cn.com.taurus.common.api.ApiCode;
+import cn.com.taurus.common.core.domain.model.LoginUser;
 import cn.com.taurus.common.exception.ServiceException;
-import cn.com.taurus.framework.web.domain.LoginUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

@@ -1,6 +1,6 @@
 package cn.com.taurus.system.entity;
 
-import cn.com.taurus.common.core.entity.BaseEntity;
+import cn.com.taurus.common.core.domain.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
