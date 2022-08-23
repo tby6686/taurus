@@ -221,6 +221,6 @@ public class TokenService
 
     private String getTokenKey(String uuid)
     {
-        return Constants.TOKEN_REDIS_KEY + uuid;
+        return Constants.REDIS_TOKEN_KEY + uuid;
     }
 }

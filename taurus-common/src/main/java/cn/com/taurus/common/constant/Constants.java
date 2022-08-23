@@ -33,9 +33,14 @@ public class Constants {
     /**
      * 登录用户 redis key
      */
-    public static final String TOKEN_REDIS_KEY = "login_tokens:";
+    public static final String REDIS_TOKEN_KEY = "login_tokens:";
 
-    /////////////////////////////////////////////
+    /**
+     * 参数管理 cache key
+     */
+    public static final String REDIS_SYS_KEY = "sys_config:";
+
+    //////////////////////////////////////////////////
 
     /**
      * 登录成功
