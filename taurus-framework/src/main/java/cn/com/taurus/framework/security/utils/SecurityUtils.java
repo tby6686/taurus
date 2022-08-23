@@ -2,7 +2,7 @@ package cn.com.taurus.framework.security.utils;
 
 
 import cn.com.taurus.common.api.ApiCode;
-import cn.com.taurus.common.exception.BusinessException;
+import cn.com.taurus.common.exception.ServiceException;
 import cn.com.taurus.framework.web.domain.LoginUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,7 +26,7 @@ public class SecurityUtils
         }
         catch (Exception e)
         {
-            throw new BusinessException(ApiCode.UNAUTHORIZED.getCode(),"获取用户ID异常");
+            throw new ServiceException("获取用户ID异常",ApiCode.UNAUTHORIZED.getCode());
         }
     }
 
@@ -41,7 +41,7 @@ public class SecurityUtils
         }
         catch (Exception e)
         {
-            throw new BusinessException(ApiCode.UNAUTHORIZED.getCode(),"获取部门ID异常");
+            throw new ServiceException("获取部门ID异常",ApiCode.UNAUTHORIZED.getCode());
         }
     }
 
@@ -56,7 +56,7 @@ public class SecurityUtils
         }
         catch (Exception e)
         {
-            throw new BusinessException(ApiCode.UNAUTHORIZED.getCode(),"获取用户账户异常");
+            throw new ServiceException("获取用户账户异常",ApiCode.UNAUTHORIZED.getCode());
         }
     }
 
@@ -71,7 +71,7 @@ public class SecurityUtils
         }
         catch (Exception e)
         {
-            throw new BusinessException(ApiCode.UNAUTHORIZED.getCode(),"获取用户信息异常");
+            throw new ServiceException("获取用户信息异常",ApiCode.UNAUTHORIZED.getCode());
         }
     }
 

@@ -1,7 +1,8 @@
 package cn.com.taurus.common.utils.uuid;
 
 
-import com.sun.xml.internal.ws.util.UtilException;
+import cn.com.taurus.common.exception.UtilException;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;

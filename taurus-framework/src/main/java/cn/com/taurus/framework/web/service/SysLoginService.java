@@ -1,7 +1,14 @@
 package cn.com.taurus.framework.web.service;
 
 import cn.com.taurus.common.constant.Constants;
+import cn.com.taurus.common.exception.ServiceException;
+import cn.com.taurus.common.exception.user.CaptchaException;
+import cn.com.taurus.common.exception.user.CaptchaExpireException;
+import cn.com.taurus.common.exception.user.UserPasswordNotMatchException;
+import cn.com.taurus.common.utils.DateUtils;
+import cn.com.taurus.common.utils.MessageUtils;
 import cn.com.taurus.common.utils.ServletUtils;
+import cn.com.taurus.common.utils.StringUtils;
 import cn.com.taurus.common.utils.ip.IpUtils;
 import cn.com.taurus.common.utils.redis.RedisCache;
 import cn.com.taurus.framework.manager.AsyncManager;
@@ -10,15 +17,14 @@ import cn.com.taurus.framework.web.domain.LoginUser;
 import cn.com.taurus.system.entity.SysUser;
 import cn.com.taurus.system.service.ISysConfigService;
 import cn.com.taurus.system.service.ISysUserService;
-import javax.annotation.Resource;
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
-import sun.misc.MessageUtils;
+
+import javax.annotation.Resource;
 
 /**
  * 登录校验方法
@@ -38,10 +44,10 @@ public class SysLoginService
     private RedisCache redisCache;
 
     @Autowired
-    private ISysUserService sysUserService;
+    private ISysUserService userService;
 
     @Autowired
-    private ISysConfigService sysConfigService;
+    private ISysConfigService configService;
 
     /**
      * 登录验证
@@ -54,7 +60,7 @@ public class SysLoginService
      */
     public String login(String username, String password, String code, String uuid)
     {
-        boolean captchaOnOff = sysConfigService.selectCaptchaOnOff();
+        boolean captchaOnOff = configService.selectCaptchaOnOff();
         // 验证码开关
         if (captchaOnOff)
         {
@@ -72,17 +78,22 @@ public class SysLoginService
         {
             if (e instanceof BadCredentialsException)
             {
+                UserPasswordNotMatchException excep = new UserPasswordNotMatchException();
                 AsyncManager.me().execute(
-                    AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.password.not.match")));
-                throw new UserPasswordNotMatchException();
+                    AsyncFactory.recordLoginLog(username, Constants.LOGIN_FAIL, excep.getMessage()));
+                throw excep;
             }
             else
             {
-                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, e.getMessage()));
+                AsyncManager.me().execute(AsyncFactory.recordLoginLog(username, Constants.LOGIN_FAIL, e.getMessage()));
                 throw new ServiceException(e.getMessage());
             }
         }
-        AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
+        String recordMessage = MessageUtils.message("user.login.success");
+        if(StringUtils.isEmpty(recordMessage)){
+            recordMessage = "登录成功";
+        }
+        AsyncManager.me().execute(AsyncFactory.recordLoginLog(username, Constants.LOGIN_SUCCESS, recordMessage));
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         recordLoginInfo(loginUser.getUserId());
         // 生成token
@@ -99,18 +110,21 @@ public class SysLoginService
      */
     public void validateCaptcha(String username, String code, String uuid)
     {
-        String verifyKey = Constants.CAPTCHA_CODE_KEY + StringUtils.nvl(uuid, "");
+        String verifyKey = Constants.REDIS_CAPTCHA_CODES_KEY + StringUtils.nvl(uuid, "");
         String captcha = redisCache.getCacheObject(verifyKey);
         redisCache.deleteObject(verifyKey);
         if (captcha == null)
         {
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.expire")));
-            throw new CaptchaExpireException();
+
+            CaptchaExpireException excep = new CaptchaExpireException();
+            AsyncManager.me().execute(AsyncFactory.recordLoginLog(username, Constants.LOGIN_FAIL, excep.getMessage()));
+            throw excep;
         }
         if (!code.equalsIgnoreCase(captcha))
         {
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.error")));
-            throw new CaptchaException();
+            CaptchaException excep = new CaptchaException();
+            AsyncManager.me().execute(AsyncFactory.recordLoginLog(username, Constants.LOGIN_FAIL, excep.getMessage()));
+            throw excep;
         }
     }
 

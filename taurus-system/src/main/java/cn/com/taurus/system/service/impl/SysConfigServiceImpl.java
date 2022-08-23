@@ -80,7 +80,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfigMapper, SysCo
      */
     private String getCacheKey(String configKey)
     {
-        return Constants.REDIS_SYS_KEY + configKey;
+        return Constants.REDIS_SYS_CONFIG_KEY + configKey;
     }
 
 

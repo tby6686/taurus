@@ -1,66 +1,98 @@
-/*
- * Copyright 2019-2029 geekidea(https://github.com/geekidea)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package cn.com.taurus.common.exception;
 
-import cn.com.taurus.common.api.ApiCode;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+
+import cn.com.taurus.common.utils.MessageUtils;
+import cn.com.taurus.common.utils.StringUtils;
 
 /**
- * 自定义异常
- * @author geekidea
- * @date 2018-11-08
+ * 基础异常
+ * 
+ * @author tby
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
-public class BaseException extends RuntimeException{
+public class BaseException extends RuntimeException
+{
+    private static final long serialVersionUID = 1L;
 
-    private static final long serialVersionUID = -2470461654663264392L;
+    /**
+     * 所属模块
+     */
+    private String module;
 
-    private Integer errorCode;
-    private String message;
+    /**
+     * 错误码
+     */
+    private String code;
 
-    public BaseException() {
-        super();
+    /**
+     * 错误码对应的参数
+     */
+    private Object[] args;
+
+    /**
+     * 错误消息
+     */
+    private String defaultMessage;
+
+    public BaseException(String module, String code, Object[] args, String defaultMessage)
+    {
+        this.module = module;
+        this.code = code;
+        this.args = args;
+        this.defaultMessage = defaultMessage;
     }
 
-    public BaseException(String message) {
-        super(message);
-        this.message = message;
+    public BaseException(String module, String code, Object[] args)
+    {
+        this(module, code, args, null);
     }
 
-    public BaseException(Integer errorCode, String message) {
-        super(message);
-        this.errorCode = errorCode;
-        this.message = message;
+    public BaseException(String module, String defaultMessage)
+    {
+        this(module, null, null, defaultMessage);
     }
 
-    public BaseException(ApiCode apiCode) {
-        super(apiCode.getMessage());
-        this.errorCode = apiCode.getCode();
-        this.message = apiCode.getMessage();
+    public BaseException(String code, Object[] args)
+    {
+        this(null, code, args, null);
     }
 
-    public BaseException(String message, Throwable cause) {
-        super(message, cause);
+    public BaseException(String defaultMessage)
+    {
+        this(null, null, null, defaultMessage);
     }
 
-    public BaseException(Throwable cause) {
-        super(cause);
+    @Override
+    public String getMessage()
+    {
+        String message = null;
+        if (!StringUtils.isEmpty(code))
+        {
+            message = MessageUtils.message(code, args);
+        }
+        if (message == null)
+        {
+            message = defaultMessage;
+        }
+        return message;
     }
 
+    public String getModule()
+    {
+        return module;
+    }
+
+    public String getCode()
+    {
+        return code;
+    }
+
+    public Object[] getArgs()
+    {
+        return args;
+    }
+
+    public String getDefaultMessage()
+    {
+        return defaultMessage;
+    }
 }

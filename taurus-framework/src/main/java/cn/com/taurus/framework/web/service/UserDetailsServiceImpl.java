@@ -2,7 +2,7 @@ package cn.com.taurus.framework.web.service;
 
 
 import cn.com.taurus.common.enums.UserStatus;
-import cn.com.taurus.common.exception.BusinessException;
+import cn.com.taurus.common.exception.ServiceException;
 import cn.com.taurus.framework.web.domain.LoginUser;
 import cn.com.taurus.system.entity.SysUser;
 import cn.com.taurus.system.service.ISysUserService;
@@ -38,17 +38,17 @@ public class UserDetailsServiceImpl implements UserDetailsService
         if (ObjectUtils.isEmpty(user))
         {
             log.info("登录用户：{} 不存在.", username);
-            throw new BusinessException("登录用户：" + username + " 不存在");
+            throw new ServiceException("登录用户：" + username + " 不存在");
         }
         else if (UserStatus.DELETED.getCode().equals(user.getDelFlag()))
         {
             log.info("登录用户：{} 已被删除.", username);
-            throw new BusinessException("对不起，您的账号：" + username + " 已被删除");
+            throw new ServiceException("对不起，您的账号：" + username + " 已被删除");
         }
         else if (UserStatus.DISABLE.getCode().equals(user.getStatus()))
         {
             log.info("登录用户：{} 已被停用.", username);
-            throw new BusinessException("对不起，您的账号：" + username + " 已停用");
+            throw new ServiceException("对不起，您的账号：" + username + " 已停用");
         }
 
         return createLoginUser(user);

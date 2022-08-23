@@ -18,10 +18,23 @@ import org.springframework.stereotype.Service;
 public class SysUserServiceImpl extends BaseServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
 
     @Autowired
-    private SysUserMapper sysUserMapper;
+    private SysUserMapper userMapper;
 
     @Override
     public SysUser selectUserByUserName(String userName) {
-        return sysUserMapper.selectUserByUserName(userName);
+        return userMapper.selectUserByUserName(userName);
+    }
+
+
+    /**
+     * 修改用户基本信息
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    @Override
+    public int updateUserProfile(SysUser user)
+    {
+        return userMapper.updateUser(user);
     }
 }
