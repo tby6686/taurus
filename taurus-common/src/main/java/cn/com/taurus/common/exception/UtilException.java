@@ -3,7 +3,7 @@ package cn.com.taurus.common.exception;
 /**
  * 工具类异常
  * 
- * @author ruoyi
+ * @author tby
  */
 public class UtilException extends RuntimeException
 {
