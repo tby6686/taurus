@@ -16,9 +16,10 @@
     </description>
 
     <dependencies>
+        <!--项目依赖模块-->
         <dependency>
             <groupId>cn.com.taurus</groupId>
-            <artifactId>taurus-framework</artifactId>
+            <artifactId>taurus-common</artifactId>
         </dependency>
     </dependencies>
 

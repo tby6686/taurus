@@ -8,25 +8,26 @@ package cn.com.taurus.common.utils;
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
     /**
-     * * 判断一个对象是否为空
+     * 是否包含字符串
      *
-     * @param object Object
-     * @return true：为空 false：非空
+     * @param str 验证字符串
+     * @param strs 字符串组
+     * @return 包含返回true
      */
-    public static boolean isNull(Object object)
+    public static boolean inStringIgnoreCase(String str, String... strs)
     {
-        return object == null;
+        if (str != null && strs != null)
+        {
+            for (String s : strs)
+            {
+                if (str.equalsIgnoreCase(trim(s)))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
-    /**
-     * * 判断一个对象是否非空
-     *
-     * @param object Object
-     * @return true：非空 false：空
-     */
-    public static boolean isNotNull(Object object)
-    {
-        return !isNull(object);
-    }
 
 }

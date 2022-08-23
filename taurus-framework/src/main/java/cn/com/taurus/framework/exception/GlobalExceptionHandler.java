@@ -4,13 +4,12 @@ import cn.com.taurus.common.api.ApiCode;
 import cn.com.taurus.common.api.ApiResult;
 import cn.com.taurus.common.exception.BusinessException;
 import cn.com.taurus.common.exception.DaoException;
-import cn.com.taurus.common.utils.StringUtils;
+import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 全局异常处理器
@@ -51,7 +50,7 @@ public class GlobalExceptionHandler {
     public ApiResult handleBusinessException(BusinessException e, HttpServletRequest request) {
         log.error(e.getMessage(), e);
         Integer code = e.getErrorCode();
-        return StringUtils.isNotNull(code) ? ApiResult
+        return ObjectUtils.isNotEmpty(code) ? ApiResult
             .result(ApiCode.getApiCode(code), e.getMessage())
             : ApiResult.result(ApiCode.BUSINESS_EXCEPTION, e.getMessage());
     }
@@ -63,7 +62,7 @@ public class GlobalExceptionHandler {
     public ApiResult handleDaoException(DaoException e, HttpServletRequest request) {
         log.error(e.getMessage(), e);
         Integer code = e.getErrorCode();
-        return StringUtils.isNotNull(code) ? ApiResult
+        return ObjectUtils.isNotEmpty(code) ? ApiResult
             .result(ApiCode.getApiCode(code), e.getMessage())
             : ApiResult.result(ApiCode.DAO_EXCEPTION, e.getMessage());
     }

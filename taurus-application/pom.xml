@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.com.taurus</groupId>
-            <artifactId>taurus-system</artifactId>
+            <artifactId>taurus-framework</artifactId>
         </dependency>
     </dependencies>
 

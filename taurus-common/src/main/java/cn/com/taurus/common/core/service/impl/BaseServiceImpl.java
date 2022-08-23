@@ -18,10 +18,7 @@ package cn.com.taurus.common.core.service.impl;
 
 import cn.com.taurus.common.core.service.BaseService;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 
 /**
  * 公共Service父类
@@ -31,4 +28,5 @@ import java.lang.reflect.Type;
  */
 public abstract class BaseServiceImpl<M extends BaseMapper<T>, T> extends
     ServiceImpl<M, T> implements BaseService<T> {
+
 }

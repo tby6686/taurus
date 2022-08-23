@@ -14,44 +14,43 @@
     <description>
         framework框架核心
     </description>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
 
-        <!-- spring boot相关  begin-->
+        <!-- Token生成与解析-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
         </dependency>
 
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>-->
-
+        <!-- 解析客户端操作系统、浏览器等 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <groupId>eu.bitwalker</groupId>
+            <artifactId>UserAgentUtils</artifactId>
         </dependency>
-        <!-- spring boot相关  end-->
 
-
-        <!--Knife4j begin-->
+        <!-- 获取系统信息 -->
         <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-        </dependency>
-        <!--Knife4j end-->
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core</artifactId>
         </dependency>
 
         <!--项目依赖模块-->
         <dependency>
             <groupId>cn.com.taurus</groupId>
-            <artifactId>taurus-common</artifactId>
+            <artifactId>taurus-system</artifactId>
         </dependency>
     </dependencies>
 
