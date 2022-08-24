@@ -13,4 +13,8 @@ public class CacheConstants {
      * 验证码 redis key
      */
     public static final String REDIS_CAPTCHA_CODES_KEY = "captcha_codes:";
+    /**
+     * 验证码有效期（分钟）
+     */
+    public static final Integer REDIS_CAPTCHA_CODES_EXPIRATION = 2;
 }
