@@ -14,11 +14,10 @@ taurus:
   captchaType: math
 
 
-
 ################################ common config start ###############################
 #访问路径、端口tomcat
 server:
-  port: 8088
+  port: 8080
   servlet:
     context-path: /api
   tomcat:

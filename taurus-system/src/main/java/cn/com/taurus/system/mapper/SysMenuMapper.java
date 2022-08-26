@@ -20,7 +20,7 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
     public List<String> selectMenuPermsByUserId(Long userId);
 
     /**
-     * 根据用户ID查询菜单
+     * 查询所有的用户菜单(ADMIN权限)
      *
      * @return 菜单列表
      */

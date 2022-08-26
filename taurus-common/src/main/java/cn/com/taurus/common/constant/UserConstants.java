@@ -2,8 +2,8 @@ package cn.com.taurus.common.constant;
 
 /**
  * 用户常量信息
- * 
- * @author ruoyi
+ *
+ * @author tby
  */
 public class UserConstants
 {
@@ -53,7 +53,7 @@ public class UserConstants
 
     /** Layout组件标识 */
     public final static String LAYOUT = "Layout";
-    
+
     /** ParentView组件标识 */
     public final static String PARENT_VIEW = "ParentView";
 
