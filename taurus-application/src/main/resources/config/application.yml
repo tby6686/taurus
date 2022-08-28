@@ -40,6 +40,10 @@ spring:
   banner:
     charset: UTF-8
     location: classpath:config/banner.txt
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
   # redis 配置
   redis:
     # 地址
