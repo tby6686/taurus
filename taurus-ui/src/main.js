@@ -19,8 +19,12 @@ import plugins from './plugins' // plugins
 import './assets/icons' // icon图标
 import './permission' // permission control
 
+// 头部标签组件
+import VueMeta from 'vue-meta'
+
 
 Vue.use(plugins)
+Vue.use(VueMeta)
 
 /**
  * If you don't want to use mock-server

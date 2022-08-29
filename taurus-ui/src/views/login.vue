@@ -197,6 +197,7 @@ export default {
   height: 38px;
   float: right;
   img {
+    height: 38px;
     cursor: pointer;
     vertical-align: middle;
   }
@@ -212,8 +213,5 @@ export default {
   font-family: Arial;
   font-size: 12px;
   letter-spacing: 1px;
-}
-.login-code-img {
-  height: 38px;
 }
 </style>
