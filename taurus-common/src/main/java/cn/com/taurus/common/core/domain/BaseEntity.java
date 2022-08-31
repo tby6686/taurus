@@ -25,7 +25,7 @@ import java.util.Map;
 
 /**
  * 实体父类
- * @author geekidea
+ * @author tby
  * @date 2018-11-08
  */
 @Data
