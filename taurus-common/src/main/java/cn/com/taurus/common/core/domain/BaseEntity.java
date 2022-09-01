@@ -17,11 +17,10 @@
 package cn.com.taurus.common.core.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
-
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Map;
+import lombok.Data;
 
 /**
  * 实体父类
@@ -33,23 +32,24 @@ public abstract class BaseEntity implements Serializable{
 	private static final long serialVersionUID = -7176390653391227433L;
 
 	/** 创建者 */
+	@ApiModelProperty("创建者")
 	private String createBy;
 
 	/** 创建时间 */
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@ApiModelProperty("创建时间")
 	private Date createTime;
 
 	/** 更新者 */
+	@ApiModelProperty("更新者")
 	private String updateBy;
 
 	/** 更新时间 */
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@ApiModelProperty("更新时间")
 	private Date updateTime;
 
 	/** 备注 */
+	@ApiModelProperty("备注")
 	private String remark;
-
-	/** 请求参数 */
-	private Map<String, Object> params;
-
 }

@@ -56,34 +56,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    left join sys_role r on r.role_id = ur.role_id
     </sql>
 
-    <!--<select id="selectUserList" parameterType="SysUser" resultMap="sysUserResult">
+    <!--查询分页数据-->
+    <select id="getSysUserPageList" resultMap="sysUserResult">
 		select u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader from sys_user u
 		left join sys_dept d on u.dept_id = d.dept_id
 		where u.del_flag = '0'
-		<if test="userId != null and userId != 0">
-			AND u.user_id = #{userId}
+		<if test="param.userName != null and param.userName != ''">
+			AND u.user_name like concat('%', #{param.userName}, '%')
 		</if>
-		<if test="userName != null and userName != ''">
-			AND u.user_name like concat('%', #{userName}, '%')
+		<if test="param.status != null and param.status != ''">
+			AND u.status = #{param.status}
 		</if>
-		<if test="status != null and status != ''">
-			AND u.status = #{status}
-		</if>
-		<if test="phonenumber != null and phonenumber != ''">
+		<if test="param.phonenumber != null and param.phonenumber != ''">
 			AND u.phonenumber like concat('%', #{phonenumber}, '%')
 		</if>
-		<if test="params.beginTime != null and params.beginTime != ''">&lt;!&ndash; 开始时间检索 &ndash;&gt;
-			AND date_format(u.create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+		<if test="param.beginTime != null and param.beginTime != ''"><!-- 开始时间检索 -->
+			AND date_format(u.create_time,'%y%m%d') &gt;= date_format(#{param.beginTime},'%y%m%d')
 		</if>
-		<if test="params.endTime != null and params.endTime != ''">&lt;!&ndash; 结束时间检索 &ndash;&gt;
-			AND date_format(u.create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+		<if test="param.endTime != null and param.endTime != ''"><!-- 结束时间检索 -->
+			AND date_format(u.create_time,'%y%m%d') &lt;= date_format(#{param.endTime},'%y%m%d')
 		</if>
-		<if test="deptId != null and deptId != 0">
-			AND (u.dept_id = #{deptId} OR u.dept_id IN ( SELECT t.dept_id FROM sys_dept t WHERE find_in_set(#{deptId}, ancestors) ))
+		<if test="param.deptId != null and param.deptId != 0">
+			AND (u.dept_id = #{param.deptId} OR u.dept_id IN ( SELECT t.dept_id FROM sys_dept t WHERE find_in_set(#{param.deptId}, ancestors) ))
 		</if>
-		&lt;!&ndash; 数据范围过滤 &ndash;&gt;
-		${params.dataScope}
-	</select>-->
+		<!-- 数据范围过滤 -->
+		${param.dataScope}
+	</select>
 
 	<select id="selectUserByUserName" parameterType="String" resultMap="SysUserResult">
 		<include refid="selectUserVo"/>

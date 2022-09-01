@@ -8,6 +8,7 @@ import java.util.List;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * @author tby
@@ -78,21 +79,26 @@ public class SysUser extends BaseEntity {
 
     ///////////////////////////////////////
     /** 部门对象 */
+    @ApiModelProperty("用户所在部门")
     private SysDept dept;
 
     /** 角色对象 */
+    @ApiModelProperty("用户所在角色列表")
     private List<SysRole> roleList;
 
     /** 角色组 */
+    @ApiModelProperty("用户所在角色id集合")
     private Long[] roleIds;
 
     /** 岗位对象 */
+    @ApiModelProperty("用户所在岗位列表")
     private List<SysPost> postList;
 
     /** 岗位组 */
+    @ApiModelProperty("用户所在岗位id集合")
     private Long[] postIds;
 
-
+    @ApiIgnore
     public boolean isAdmin() {
         return isAdmin(this.userId);
     }
@@ -100,6 +106,5 @@ public class SysUser extends BaseEntity {
     public static boolean isAdmin(Long userId) {
         return userId != null && 1L == userId;
     }
-
 
 }

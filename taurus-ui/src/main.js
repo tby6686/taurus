@@ -19,11 +19,18 @@ import plugins from './plugins' // plugins
 import './assets/icons' // icon图标
 import './permission' // permission control
 
+// 分页组件
+import Pagination from "@/components/Pagination";
+// 自定义表格工具组件
+import RightToolbar from "@/components/RightToolbar"
 // 头部标签组件
 import VueMeta from 'vue-meta'
 // 字典数据组件
 import DictData from '@/components/DictData'
 
+
+Vue.component('Pagination', Pagination)
+Vue.component('RightToolbar', RightToolbar)
 
 Vue.use(plugins)
 Vue.use(VueMeta)
