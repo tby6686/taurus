@@ -57,9 +57,11 @@ public class SysRole extends BaseEntity {
     /////////////////////////////////////////////
 
     /** 菜单组 */
+    @ApiModelProperty("菜单组id集合")
     private Long[] menuIds;
 
     /** 部门组（数据权限） */
+    @ApiModelProperty("部门组id集合")
     private Long[] deptIds;
 
 }

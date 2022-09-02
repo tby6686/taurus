@@ -20,12 +20,12 @@ public class BaseParam extends BasePageOrderParam {
 
     /** 时间--开始 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @ApiModelProperty("时间开始(yyyy-MM-dd)")
+    @ApiModelProperty(value = "时间开始(yyyy-MM-dd)",position = 500)
     private Date beginTime;
 
     /** 时间--结束 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @ApiModelProperty("时间结束(开始yyyy-MM-dd)")
+    @ApiModelProperty(value = "时间结束(开始yyyy-MM-dd)",position = 501)
     private Date endTime;
 
 }

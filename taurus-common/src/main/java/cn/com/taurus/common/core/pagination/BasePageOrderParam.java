@@ -19,7 +19,7 @@ import org.apache.commons.collections4.CollectionUtils;
 public abstract class BasePageOrderParam extends BasePageParam {
     private static final long serialVersionUID = 57714391204790143L;
 
-    @ApiModelProperty("排序项集合")
+    @ApiModelProperty(value = "排序项集合",position = 600)
     private List<OrderItem> pageSorts;
 
     public void defaultPageSort(OrderItem orderItem) {

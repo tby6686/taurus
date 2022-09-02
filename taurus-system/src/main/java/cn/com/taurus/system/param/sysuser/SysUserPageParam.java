@@ -1,10 +1,8 @@
 package cn.com.taurus.system.param.sysuser;
 
 import cn.com.taurus.common.core.domain.BaseParam;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Date;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -32,20 +30,8 @@ public class SysUserPageParam extends BaseParam {
     @ApiModelProperty("手机号码")
     private String phonenumber;
 
-
     /** 帐号状态（0正常 1停用） */
     @ApiModelProperty("帐号状态(0正常,1停用)")
     private String status;
-
-    /** 创建时间--开始 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @ApiModelProperty("创建时间(开始yyyy-MM-dd)")
-    private Date beginTime;
-
-    /** 创建时间--结束 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @ApiModelProperty("创建时间(结束yyyy-MM-dd)")
-    private Date endTime;
-
 
 }

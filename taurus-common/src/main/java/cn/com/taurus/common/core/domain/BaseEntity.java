@@ -1,19 +1,3 @@
-/*
- * Copyright 2019-2029 geekidea(https://github.com/geekidea)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package cn.com.taurus.common.core.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -32,24 +16,24 @@ public abstract class BaseEntity implements Serializable{
 	private static final long serialVersionUID = -7176390653391227433L;
 
 	/** 创建者 */
-	@ApiModelProperty("创建者")
+	@ApiModelProperty(value = "创建者",position = 500)
 	private String createBy;
 
 	/** 创建时间 */
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@ApiModelProperty("创建时间")
+	@ApiModelProperty(value = "创建时间",position = 501)
 	private Date createTime;
 
 	/** 更新者 */
-	@ApiModelProperty("更新者")
+	@ApiModelProperty(value="更新者",position = 502)
 	private String updateBy;
 
 	/** 更新时间 */
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@ApiModelProperty("更新时间")
+	@ApiModelProperty(value="更新时间",position = 503)
 	private Date updateTime;
 
 	/** 备注 */
-	@ApiModelProperty("备注")
+	@ApiModelProperty(value = "备注",position = 504)
 	private String remark;
 }

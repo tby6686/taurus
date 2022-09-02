@@ -12,13 +12,13 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 分页结果对象
  *
- * @author geekidea
+ * @author tby
  * @date 2018-11-08
  */
 
 @Slf4j
 @Data
-@ApiModel("分页结果对象")
+@ApiModel(value = "Paging对象",description = "分页结果对象")
 public class Paging<T> implements Serializable {
     private static final long serialVersionUID = 4784961132604516495L;
 
@@ -28,10 +28,10 @@ public class Paging<T> implements Serializable {
     @ApiModelProperty("数据列表")
     private List<T> records = Collections.emptyList();
 
-    @ApiModelProperty(value = "页码")
+    @ApiModelProperty(value = "当前页码")
     private Long pageIndex;
 
-    @ApiModelProperty(value = "页大小")
+    @ApiModelProperty(value = "每页条数")
     private Long pageSize;
 
     public Paging() {

@@ -40,7 +40,8 @@
         <kaptcha.version>2.3.2</kaptcha.version>
         <jwt.version>0.9.1</jwt.version>
 
-        <knife4j.version>3.0.3</knife4j.version>
+        <knife4j.version>2.0.2</knife4j.version>
+        <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
         <bitwalker.version>1.21</bitwalker.version>
         <oshi.version>6.1.6</oshi.version>
 
@@ -135,6 +136,12 @@
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
+            <dependency>
+                <!--兼容原版SwaggerUI-->
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox-swagger-ui.version}</version>
+            </dependency>
             <!--Knife4j end-->
 
             <!-- 解析客户端操作系统、浏览器等 -->
@@ -228,6 +235,11 @@
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <!--兼容原版SwaggerUI-->
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
         <!--Knife4j end-->
 

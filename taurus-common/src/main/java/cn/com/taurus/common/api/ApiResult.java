@@ -1,42 +1,27 @@
-/*
- * Copyright 2019-2029 geekidea(https://github.com/geekidea)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package cn.com.taurus.common.api;
 
 import cn.com.taurus.common.utils.StringUtils;
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
+import java.util.Date;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
  * REST API 返回结果
  * </p>
  *
- * @author geekidea
+ * @author tby
  * @since 2018-11-08
  */
 @Data
 @Accessors(chain = true)
 @Builder
-@AllArgsConstructor
+@ApiModel(value = "ApiResult对象",description = "Api返回结果")
 public class ApiResult<T> implements Serializable {
 
     private static final long serialVersionUID = 8004487252556526569L;
@@ -44,26 +29,32 @@ public class ApiResult<T> implements Serializable {
     /**
      * 响应码
      */
+    @ApiModelProperty("响应码")
     private int code;
 
     /**
      * 是否成功
      */
+    @ApiModelProperty("是否成功")
     private boolean success;
 
     /**
      * 响应消息
      */
+    @ApiModelProperty("响应消息")
     private String message;
 
     /**
      * 响应数据
      */
+    @ApiModelProperty("响应数据")
     private T data;
 
     /**
      * 时间
      */
+    @ApiModelProperty("响应时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date time;
 
 

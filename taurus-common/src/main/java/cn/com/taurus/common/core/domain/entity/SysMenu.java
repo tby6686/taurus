@@ -82,6 +82,7 @@ public class SysMenu extends BaseEntity {
     //////////////////////////////////////////////////////
 
     /** 子菜单 */
+    @ApiModelProperty("子菜单列表")
     private List<SysMenu> children = new ArrayList<SysMenu>();
 
 }

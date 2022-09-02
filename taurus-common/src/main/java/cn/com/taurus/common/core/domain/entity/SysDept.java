@@ -26,6 +26,9 @@ public class SysDept extends BaseEntity {
     @ApiModelProperty("父部门ID")
     private Long parentId;
 
+    /** 父部门名称 */
+    private String parentName;
+
     /** 祖级列表 */
     @ApiModelProperty("祖级列表")
     private String ancestors;
@@ -57,10 +60,5 @@ public class SysDept extends BaseEntity {
     /** 删除标志（0代表存在 1代表删除） */
     @ApiModelProperty("删除标志（0代表存在 1代表删除）")
     private String delFlag;
-
-    /////////////////////////////////////////////////
-
-    /** 父部门名称 */
-    private String parentName;
 
 }

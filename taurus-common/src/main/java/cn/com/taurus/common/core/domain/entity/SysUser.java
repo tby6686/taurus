@@ -8,7 +8,6 @@ import java.util.List;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * @author tby
@@ -98,7 +97,7 @@ public class SysUser extends BaseEntity {
     @ApiModelProperty("用户所在岗位id集合")
     private Long[] postIds;
 
-    @ApiIgnore
+    @ApiModelProperty(value = "是否为管理员",hidden = true)
     public boolean isAdmin() {
         return isAdmin(this.userId);
     }
