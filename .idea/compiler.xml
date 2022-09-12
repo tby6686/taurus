@@ -13,5 +13,8 @@
         <module name="taurus-system" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="taurus-ui" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

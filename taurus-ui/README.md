@@ -1,30 +1,29 @@
-## 开发
+# vue3-project
 
-```bash
-# 克隆项目
-git clone https://gitee.com/y_project/RuoYi-Vue
+This template should help get you started developing with Vue 3 in Vite.
 
-# 进入项目目录
-cd taurus-ui
+## Recommended IDE Setup
 
-# 安装依赖
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
 npm install
+```
 
-# 建议不要直接使用 cnpm 安装依赖，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题
-npm install --registry=https://registry.npmmirror.com
+### Compile and Hot-Reload for Development
 
-# 启动服务
+```sh
 npm run dev
 ```
 
-浏览器访问 http://localhost:80
+### Compile and Minify for Production
 
-## 发布
-
-```bash
-# 构建测试环境
-npm run build:stage
-
-# 构建生产环境
-npm run build:prod
+```sh
+npm run build
 ```
