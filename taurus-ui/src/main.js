@@ -17,7 +17,6 @@ import App from './App'
 
 
 
-
 // svg图标
 import 'virtual:svg-icons-register'
 import SvgIcon from '@/components/SvgIcon'
